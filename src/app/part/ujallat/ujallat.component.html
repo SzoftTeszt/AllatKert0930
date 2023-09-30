@@ -23,7 +23,7 @@
     <label for="hely">Helye az állatkertben</label>
 </div> -->
 
-<div class="form-floating">
+<div *ngIf="lakohelyek.length>0" class="form-floating">
     <select [(ngModel)]="allat.helye" class="form-select" id="lakhely" aria-label="Floating label select example">
       <option *ngFor="let lakhely of lakohelyek"
       [value]="lakhely.lakhely"
@@ -33,7 +33,7 @@
     <label for="lakhely">Helye az állatkertben</label>
 </div>
 
-<div class="form-floating">
+<div  *ngIf="gondozok.length>0" class="form-floating">
     <select [(ngModel)]="allat.gondozo" class="form-select" id="gondozo" aria-label="Floating label select example">
       <option *ngFor="let gondozo of gondozok"
       [value]="gondozo.nev"

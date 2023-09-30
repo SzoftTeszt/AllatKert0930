@@ -7,8 +7,10 @@ import { BaseService } from 'src/app/services/base.service';
   styleUrls: ['./allataink.component.css']
 })
 export class AllatainkComponent {
+  showError=false
+  errorMessage:any=""
 
-  allatok:any
+  allatok:any=[]
   oszlopok:any=[
     {key:"nev", text:"Állat neve"},
     {key:"faj", text:"Faj"},
@@ -19,9 +21,22 @@ export class AllatainkComponent {
 
   constructor(private base:BaseService){
     
-    this.base.getData("allatok").subscribe(
-      (adatok:any)=>this.allatok=adatok
+
+    this.base.getData("allatok").subscribe({
+      next:(adatok:any)=>{
+        this.allatok=adatok;
+        this.showError=false;
+      },
+      error:(e)=>{
+        this.showError=true;
+        this.errorMessage=e;
+      }
+    }
     )
 
   }
+
+  update(){}
+  delete(){}
+
 }

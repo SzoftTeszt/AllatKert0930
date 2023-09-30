@@ -1,14 +1,50 @@
 <!-- {{allatok|json}} -->
 <h1 class="display-4 my-2 text-center">Állatkertünk jelenlegi lakói</h1>
 
-<div class="row mt-3 mb-2">
-    <div *ngFor="let oszlop of oszlopok" class="col">
-        {{oszlop.text}}
+<ng-container *ngIf="allatok.length>0; else error">
+    <div class="row mt-3 mb-2 text-center fw-bold">
+        <div *ngFor="let oszlop of oszlopok" class="col">
+            {{oszlop.text}}
+        </div>
+        <div class="col">
+            Műveletek
+        </div>
     </div>
-</div>
+    
+    <div *ngFor="let allat of allatok" class="row my-2">
+        <div *ngFor="let oszlop of oszlopok" class="col">
+            {{allat[oszlop.key]}}
+        </div>
 
-<div *ngFor="let allat of allatok" class="row my-2">
-    <div *ngFor="let oszlop of oszlopok" class="col">
-        {{allat[oszlop.key]}}
+        <div class="col text-center">
+            <div class="row">
+                <div class="col-6">
+                    <button (click)="update()" type="button" class="btn btn-warning">Módosít</button>
+                </div>
+
+                <div class="col-6">
+                    <button (click)="delete()" type="button" class="btn btn-warning">Töröl</button>
+                </div>            
+            </div>
+        </div>
+
     </div>
-</div>
+</ng-container>
+
+<ng-template #error>
+    <ng-container *ngIf="showError; else wait">
+        <div class="alert alert-danger" role="alert">
+            <h2>Hiba történt</h2>
+            <p>Az adatok nem elérhetőek</p>
+            <p>Hiba: {{errorMessage.message}}</p>
+        </div>
+    </ng-container>
+
+    <ng-template #wait>
+        <div class="alert alert-danger" role="alert">
+            <h2>Várakozás</h2>
+            <p>Az adatok töltődnek ...</p>
+        </div>
+    </ng-template>
+
+</ng-template>

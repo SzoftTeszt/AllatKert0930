@@ -9,8 +9,8 @@ import { BaseService } from 'src/app/services/base.service';
 })
 export class UjallatComponent {
   allat:any={}
-  gondozok:any
-  lakohelyek:any
+  gondozok:any=[]
+  lakohelyek:any=[]
   
   constructor(private base:BaseService, private router:Router){
 
