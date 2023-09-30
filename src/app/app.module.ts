@@ -9,6 +9,7 @@ import { HomeComponent } from './part/home/home.component';
 import { AllatainkComponent } from './part/allataink/allataink.component';
 import { UjallatComponent } from './part/ujallat/ujallat.component';
 import { NavComponent } from './part/nav/nav.component';
+import { FilterPipe } from './pipe/filter.pipe';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NavComponent } from './part/nav/nav.component';
     HomeComponent,
     AllatainkComponent,
     UjallatComponent,
-    NavComponent
+    NavComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

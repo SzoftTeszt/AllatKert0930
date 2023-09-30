@@ -1,7 +1,7 @@
-{{allat|json}}
+<!-- {{allat|json}} -->
 <!-- {{gondozok|json}} -->
 {{lakohelyek|json}}
-<h1 class="display-3 text-center">Új lakó felvétele</h1>
+<h1 class="display-3 text-center">{{cim}}</h1>
 
 <div class="form-floating mb-3">
     <input [(ngModel)]="allat.nev" type="text" class="form-control" id="nev" >
@@ -43,4 +43,4 @@
     <label for="gondozo">Gondozója</label>
 </div>
 
-  <button (click)="save()" type="button" class="btn btn-warning">Felvétel</button>
+  <button (click)="save()" type="button" class="btn btn-warning">{{gomb}}</button>

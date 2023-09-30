@@ -7,6 +7,7 @@ import { HomeComponent } from './part/home/home.component';
 const routes: Routes = [
   {path:"allataink", component:AllatainkComponent},
   {path:"ujallat", component:UjallatComponent},
+  {path:"ujallat/:id", component:UjallatComponent},
   {path:"home", component:HomeComponent},
   {path:" ", redirectTo:'home'},
   {path:"**", redirectTo:'home'},

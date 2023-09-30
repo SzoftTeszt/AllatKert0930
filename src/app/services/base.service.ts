@@ -11,7 +11,15 @@ export class BaseService {
     return this.http.get(this.url+target)
   }
 
+  getAnimal(id:any){
+    return this.http.get(this.url+"allatok/"+id)
+  }
+  
+
   newAnimal(body:any){
+    console.log("id", body.id)
+    console.log("id log:", Boolean(body.id))
+    if (body.id!=undefined) return this.http.put(this.url+"allatok/"+body.id,body)
     return this.http.post(this.url+"allatok",body)
   }
 

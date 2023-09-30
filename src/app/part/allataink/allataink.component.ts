@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { BaseService } from 'src/app/services/base.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class AllatainkComponent {
     {key:"erkezes", text:"Érkezése"},
     ]
 
-  constructor(private base:BaseService){
+    keresendo="s"
+  constructor(private base:BaseService, private router:Router){
     this.getAnimals();
   }
 
@@ -37,7 +39,9 @@ export class AllatainkComponent {
     )
   }
 
-  update(allat:any){}
+  update(allat:any){
+    this.router.navigate(['/ujallat',allat.id])
+  }
   
   delete(allat:any){
     this.base.deleteAnimal(allat).subscribe(
