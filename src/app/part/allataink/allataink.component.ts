@@ -20,8 +20,10 @@ export class AllatainkComponent {
     ]
 
   constructor(private base:BaseService){
-    
+    this.getAnimals();
+  }
 
+  getAnimals(){
     this.base.getData("allatok").subscribe({
       next:(adatok:any)=>{
         this.allatok=adatok;
@@ -33,10 +35,14 @@ export class AllatainkComponent {
       }
     }
     )
-
   }
 
-  update(){}
-  delete(){}
+  update(allat:any){}
+  
+  delete(allat:any){
+    this.base.deleteAnimal(allat).subscribe(
+      ()=>this.getAnimals()
+    )
+  }
 
 }

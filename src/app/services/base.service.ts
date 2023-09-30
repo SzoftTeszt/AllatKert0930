@@ -14,4 +14,8 @@ export class BaseService {
   newAnimal(body:any){
     return this.http.post(this.url+"allatok",body)
   }
+
+  deleteAnimal(body:any){
+    return this.http.delete(this.url+"allatok/"+body.id)
+  }
 }
