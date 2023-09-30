@@ -1,1 +1,46 @@
-<p>ujallat works!</p>
+{{allat|json}}
+<!-- {{gondozok|json}} -->
+{{lakohelyek|json}}
+<h1 class="display-3 text-center">Új lakó felvétele</h1>
+
+<div class="form-floating mb-3">
+    <input [(ngModel)]="allat.nev" type="text" class="form-control" id="nev" >
+    <label for="nev">Új állat neve</label>
+</div>
+
+<div class="form-floating mb-3">
+    <input [(ngModel)]="allat.faj" type="text" class="form-control" id="faj" >
+    <label for="faj">Faja az állatnak</label>
+</div>
+
+<div class="form-floating mb-3">
+    <input [(ngModel)]="allat.erkezes" type="date" class="form-control" id="erkezes" >
+    <label for="faj">Érkezés dátuma</label>
+</div>
+
+<!-- <div class="form-floating mb-3">
+    <input [(ngModel)]="allat.helye" type="text" class="form-control" id="hely" >
+    <label for="hely">Helye az állatkertben</label>
+</div> -->
+
+<div class="form-floating">
+    <select [(ngModel)]="allat.helye" class="form-select" id="lakhely" aria-label="Floating label select example">
+      <option *ngFor="let lakhely of lakohelyek"
+      [value]="lakhely.lakhely"
+      >{{lakhely.lakhely}}</option>
+
+    </select>
+    <label for="lakhely">Helye az állatkertben</label>
+</div>
+
+<div class="form-floating">
+    <select [(ngModel)]="allat.gondozo" class="form-select" id="gondozo" aria-label="Floating label select example">
+      <option *ngFor="let gondozo of gondozok"
+      [value]="gondozo.nev"
+      >{{gondozo.nev}}</option>
+
+    </select>
+    <label for="gondozo">Gondozója</label>
+</div>
+
+  <button (click)="save()" type="button" class="btn btn-warning">Felvétel</button>
